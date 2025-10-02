@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ejemplo</title>
+    <style>
+      * {
+        margin: 0; 
+        padding: 0;
+        box-sizing: border-box;
+      }
+      div#show {
+        width: 800px;
+        margin: 0 auto;
+        background: lightpink;
+        overflow: auto;
+      }
+      div#show > div {
+        border: 1px solid black;
+        width: calc(50% - 2%);
+        padding: 10px;
+        margin: 1%;
+        float: left;
+        background: white;
+      }
+      div#show div.destacado {
+        border: 2px solid red;
+        width: calc(100% - 2%);
+        padding: 10px;
+        margin: 1%;
+        float: none;
+        background: lightyellow;
+      }
+      div#show div.fin {
+        width: 100%;
+        clear: both;
+        background: purple;
+        color: white;
+        padding: 10px;
+        text-align: center;
+      }
+      div#show img {
+        width: 50%;
+        height: auto;
+        display: block;
+        margin: 10px 0;
+      }
+      div#show h1 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="show"></div> 
+    <script>
+      const tenis = [
+        {name:"Margaret Court", titles: 24},
+        {name:"Serena Williams", titles: 23},
+        {name:"Steffi Graf", titles: 22},
+        {name:"Helen Wills", titles: 19},
+        {name:"Chris Evert", titles: 18}
+      ];
+      
+      const trabajos = [
+        {
+          title: "Website Corporativo",
+          category: "destacado",
+          photo: "https://picsum.photos/id/237/200/300",
+          description: "Este trabajo tan lindo lo hice en tal momento, para tal curso"
+        },
+        {
+          title: "Las Fenix",
+          category: "Diseño Logotipo",
+          photo: "https://picsum.photos/seed/picsum/200/300",
+          description: "Este trabajo tan lindo lo hice en tal momento, para tal curso"
+        },
+        {
+          title: "Identidad Visual",
+          category: "Branding",
+          photo: "https://picsum.photos/200/300?random=1",
+          description: "Este trabajo tan lindo lo hice en tal momento, para tal curso"
+        },
+        {
+          title: "Dashboard Analytics",
+          category: "UI Design",
+          photo: "https://picsum.photos/200/300?random=2",
+          description: "Este trabajo tan lindo lo hice en tal momento, para tal curso"
+        },
+        {
+          title: "App Mobile",
+          category: "UI Design",
+          photo: "https://picsum.photos/200/300?random=3",
+          description: "Este trabajo tan lindo lo hice en tal momento, para tal curso"
+        }
+      ];
+      
+      const parrafos = document.querySelector("#show");
+      
+      // Mostrar portfolio de trabajos
+      trabajos.forEach((trabajo) => {
+        parrafos.innerHTML += `
+          <div class="${trabajo.category}">
+            <h1>${trabajo.title}</h1>
+            <img src="${trabajo.photo}"/>
+            <p>${trabajo.description}</p>
+          </div>
+        `;
+      });
+      
+      // Agregar div final
+      parrafos.innerHTML += `<div class="fin">¡Fin!</div>`;
+      
+      function emojis(n) {
+        var imprime = "";
+        for(var x = 0; x < n; x++) {
+          imprime += "🏆 ";
+        }
+        return imprime;
+      }
+    </script>
+  </body>
+</html>
